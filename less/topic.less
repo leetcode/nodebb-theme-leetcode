@@ -75,17 +75,14 @@
 				position: absolute;
 				right: 12px;
 				font-size: 12px;
-				top: 0px;
-
-				@media (min-width: @screen-md-min) {
-					top: 2px;
-					font-size: 16px;
-				}
+				top: -15px;
+				font-size: 16px;
 			}
 
 			img, .user-icon {
 				margin-right: 15px;
 				.user-icon-style(46px, 2.4rem, 50%);
+				border-radius: 0;
 			}
 		}
 
@@ -125,7 +122,11 @@
 	}
 
 	[component="post/upvote"].upvoted, [component="post/downvote"].downvoted {
-		color: @brand-primary;
+		color: rgb(244, 128, 36);
+	}
+
+	[component="post/parent"] {
+		font-size: 10px;
 	}
 
 	.stats {
@@ -153,8 +154,7 @@
 	.content {
 		margin-top: 20px;
 		padding-bottom: 1px;
-		margin-top: -43px;
-		margin-left: 61px;
+		margin-left: 15px;
 		word-wrap: break-word;
 		overflow: hidden;
 	}
@@ -225,10 +225,42 @@
 		margin-left: 61px;
 	}
 
+	.user-info {
+		padding-left: 16px;
+	}
+
+	.action-info {
+		padding-top: 10px;
+	}
+
+	.vote-buttons {
+		text-align: center;
+
+		.vote-button {
+			font-size: 300%;
+			cursor: pointer;
+		}
+
+		.vote-count {
+			font-size: 200%;
+			margin-top: -6px;
+			margin-bottom: -6px;
+		}
+	}
+
+	.vote-col {
+		vertical-align: top;
+	}
+
+	.content-col {
+		width: 100%;
+		vertical-align: top;
+	}
+
 	@media (max-width: @screen-sm-max) {
 		.content {
-			margin-left: 0;
-			margin-top: -10px;
+			margin-top: 7px;
+			min-height: 59px;
 		}
 
 		.post-signature {
@@ -242,8 +274,21 @@
 
 			img, .user-icon {
 				.user-icon-style(23px, 1.3rem, 50%);
+				border-radius: 0;
 			}
 		}
+
+		.posts {
+			.icon {
+				> a > .status {
+					right: 14px;
+					font-size: 12px;
+					top: -2px;
+
+				}
+			}
+		}
+
 	}
 }
 
@@ -263,6 +308,7 @@
 
 		> li {
 			position: relative;
+			padding-top: 1px;
 
 			.edit-icon {
 				vertical-align: -2%;
@@ -293,6 +339,8 @@
 		}
 
 		.content {
+			margin-top: 13px;
+
 			.fix-lists;
 
 			blockquote {
@@ -338,6 +386,8 @@
 			}
 
 			@media (max-width: @screen-sm-min) {
+				margin-top: 7px;
+
 				pre {
 					max-height: 250px;
 				}
