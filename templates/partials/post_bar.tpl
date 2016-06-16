@@ -1,4 +1,4 @@
-<div class="clearfix">
+<div class="clearfix with-space">
 	<div class="tags pull-left">
 		<!-- BEGIN tags -->
 		<a href="{config.relative_path}/tags/{tags.value}">
@@ -29,4 +29,4 @@
 		<!-- IMPORT partials/thread_tools.tpl -->
 	</div>
 </div>
-<hr/>
+<hr class="no-space" />

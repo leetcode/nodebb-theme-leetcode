@@ -17,7 +17,7 @@
 
 	<div component="topic/deleted/message" class="alert alert-warning<!-- IF !deleted --> hidden<!-- ENDIF !deleted -->">[[topic:deleted_message]]</div>
 
-	<hr class="visible-xs" />
+	<hr class="visible-xs" style="margin-bottom: 0" />
 
 	<ul component="topic" class="posts" data-tid="{tid}">
 		<!-- BEGIN posts -->
