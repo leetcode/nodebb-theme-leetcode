@@ -83,6 +83,14 @@
 				margin-right: 5px;
 				.user-icon-style(46px, 2.4rem, 50%);
 			}
+
+			.user-img + i.status {
+				top: -30px;
+
+				@media (max-width: @screen-sm-max) {
+					top: -18px;
+				}
+			}
 		}
 
 		.status {
@@ -229,6 +237,10 @@
 
 	.username {
 		font-weight: 700;
+	}
+
+	.user-img {
+		display: inline-block;
 	}
 
 	.action-info {
