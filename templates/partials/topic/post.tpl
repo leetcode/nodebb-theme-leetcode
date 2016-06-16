@@ -22,7 +22,7 @@
 </td>
 
 <td class="content-col">
-	<div class="vtop content-info content" component="post/content" itemprop="text">
+	<div class="vtop content-info content pull-left" component="post/content" itemprop="text">
 		{posts.content}
 	</div>
 
