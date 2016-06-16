@@ -226,6 +226,7 @@
 
 	.user-info {
 		padding-left: 16px;
+		padding-top: 10px;
 		width: 200px;
 
 		.permalink {
@@ -241,26 +242,22 @@
 		margin-top: -4px;
 	}
 
-	.vote-col {
-		margin-top: -10px;
-	}
-
 	.content-info {
 		margin-top: 0;
 		padding-left: 19px;
-		min-height: 40px;
-		width: 850px;
+		width: 100%;
 	}
 
-	@media (max-width: @screen-lg-min) {
-		.content-info {
-			width: 660px;
-		}
+	.reply-box {
+		width: 100%;
+		vertical-align: top;
+		text-align: right;
+		padding-top: 10px;
 	}
 
 	.action-info {
 		padding-top: 10px;
-		padding-left: 20px;
+		padding-left: 10px;
 	}
 
 	.vote-buttons {
@@ -296,6 +293,7 @@
 	table {
 		.fw {
 			width: 100%;
+			margin-left: 12px;
 		}
 
 		.label {
@@ -306,7 +304,6 @@
 	@media (max-width: @screen-sm-max) {
 		.content {
 			margin-top: 7px;
-			min-height: 59px;
 		}
 
 		.username-info {
@@ -355,6 +352,18 @@
 		list-style-type: none;
 		padding: 0;
 
+		table {
+			.vote-col {
+				margin-top: -10px;
+			}
+
+			@media (max-width: @screen-sm-max) {
+				.vote-col {
+					margin-top: 0;
+				}
+			}
+		}
+
 		> li {
 			position: relative;
 			padding-top: 1px;
@@ -388,8 +397,6 @@
 		}
 
 		.content {
-			margin-top: 13px;
-
 			.fix-lists;
 
 			blockquote {
