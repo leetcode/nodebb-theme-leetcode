@@ -46,7 +46,6 @@
 	</td>
 
 	<td class="reply-box visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-	<div class="vtop">
 		<small>
 			<!-- IF posts.toPid -->
 			<button component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="{posts.toPid}"><i class="fa fa-reply"></i> @<!-- IF posts.parent.username -->{posts.parent.username}<!-- ELSE -->[[global:guest]]<!-- ENDIF posts.parent.username --></button>
@@ -61,7 +60,6 @@
 				<!-- ENDIF posts.user.custom_profile_info.length -->
 			</span>
 		</small>
-	</div>
 	</td>
 
 	<td class="user-info">
