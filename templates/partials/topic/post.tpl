@@ -31,7 +31,7 @@
 				</a>
 			</span>
 
-			<small class="user-info">
+			<div class="user-info">
 				<span class="username">
 					<a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.username}</a>
 					<span>
@@ -44,12 +44,6 @@
 				</span>
 
 				<div class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-					<a class="permalink" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}"><span class="timeago" title="{posts.timestampISO}"></span></a>
-
-					<i class="fa fa-pencil-square pointer edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
-
-					<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by, {posts.editor.username}]] <span class="timeago" title="{posts.editedISO}"></span></small>
-
 					<!-- IF posts.toPid -->
 					<button component="post/parent" class="btn btn-xs btn-default hidden-xs" data-topid="{posts.toPid}"><i class="fa fa-reply"></i> @<!-- IF posts.parent.username -->{posts.parent.username}<!-- ELSE -->[[global:guest]]<!-- ENDIF posts.parent.username --></button>
 					<!-- ENDIF posts.toPid -->
@@ -63,27 +57,39 @@
 						<!-- ENDIF posts.user.custom_profile_info.length -->
 					</span>
 				</div>
-			</small>
+
+				<div class="reputation-info">
+					[[global:reputation]]: <i class='fa fa-star'></i> <span component="user/reputation" data-reputation="{posts.user.reputation}" data-uid="{posts.uid}" class='formatted-number reputation'>{posts.user.reputation}</span>
+				</div>
+			</div>
 		</div>
 
 		<div class="content" component="post/content" itemprop="text">
 			{posts.content}
 		</div>
 
-		<div class="action-info">
+		<small class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block date-info pull-left">
+			<a class="permalink" style="text-decoration: none" href="{config.relative_path}/topic/{slug}/{function.getBookmarkFromIndex}"><span class="timeago" title="{posts.timestampISO}"></span></a>
+
+			<i class="fa fa-pencil-square pointer edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
+
+			<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by, {posts.editor.username}]] <span class="timeago" title="{posts.editedISO}"></span></small>
+
+		</small>
+
+		<small class="action-info pull-right">
 			<!-- IF posts.user.signature -->
 			<div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
 			<!-- ENDIF posts.user.signature -->
 
-			<small>
-				<span class="post-tools">
-					<a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
-					<a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
-				</span>
+			<span class="post-tools">
+				<a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
+				<a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
+			</span>
 
-				<!-- IMPORT partials/topic/post-menu.tpl -->
-			</small>
-		</div>
+			<!-- IMPORT partials/topic/post-menu.tpl -->
+		</small>
+		<div class="clearfix"></div>
 	</div>
 </div>
 
