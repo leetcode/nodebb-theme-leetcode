@@ -30,7 +30,7 @@
 	</div>
 	<!-- ENDIF !topics.length -->
 
-	<!-- IMPORT partials/topics_list.tpl -->
+    <!-- IMPORT partials/topics_list_leetcode.tpl -->
 
 	<!-- IF config.usePagination -->
 		<!-- IMPORT partials/paginator.tpl -->
