@@ -16,8 +16,6 @@
 
 		<!-- IMPORT partials/topic/reply-button.tpl -->
 
-		<!-- IMPORT partials/topic/watch.tpl -->
-
 		<!-- IMPORT partials/topic/back-to-leetcode.tpl -->
 
 		<!-- IF loggedIn -->
