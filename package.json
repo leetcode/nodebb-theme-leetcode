@@ -1,6 +1,6 @@
 {
   "name": "nodebb-theme-leetcode",
-  "version": "4.0.118",
+  "version": "4.1.7",
   "nbbpm": {
     "compatibility": "^0.8.2 || ^0.9.0 || ^1.0.0"
   },
