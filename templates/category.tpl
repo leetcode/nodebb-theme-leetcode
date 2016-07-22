@@ -32,28 +32,12 @@
 		</div>
 		<!-- ENDIF !topics.length -->
 
-		<!-- IMPORT partials/topics_list.tpl -->
+		<!-- IMPORT partials/topics_list_leetcode.tpl -->
 
 		<!-- IF config.usePagination -->
 			<!-- IMPORT partials/paginator.tpl -->
 		<!-- ENDIF config.usePagination -->
 	</div>
-
-	<hr class="hidden-xs" />
-
-	<p class="hidden-xs">{name}</p>
-
-	<!-- IF !topics.length -->
-	<div class="alert alert-warning" id="category-no-topics">
-		[[category:no_topics]]
-	</div>
-	<!-- ENDIF !topics.length -->
-
-    <!-- IMPORT partials/topics_list_leetcode.tpl -->
-
-	<!-- IF config.usePagination -->
-		<!-- IMPORT partials/paginator.tpl -->
-	<!-- ENDIF config.usePagination -->
 </div>
 <div widget-area="footer"></div>
 
