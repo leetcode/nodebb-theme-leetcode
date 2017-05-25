@@ -1,22 +1,29 @@
 <!-- IMPORT partials/breadcrumbs.tpl -->
 <div widget-area="header"></div>
 <div class="row">
-	<div class="topic col-lg-9 col-sm-12" no-widget-class="topic col-lg-12 col-sm-12" no-widget-target="sidebar">
+	<div class="topic col-lg-12 col-sm-12" has-widget-class="topic col-lg-9 col-sm-12" has-widget-target="sidebar">
 
 		<h1 component="post/header" class="hidden-xs" itemprop="name">
 
-			<i class="pull-left fa fa-thumb-tack <!-- IF !pinned -->hidden<!-- ENDIF !pinned -->"></i> <i class="pull-left fa fa-lock <!-- IF !locked -->hidden<!-- ENDIF !locked -->"></i> <span class="topic-title" component="topic/title">{title}</span>
+			<i class="pull-left fa fa-thumb-tack <!-- IF !pinned -->hidden<!-- ENDIF !pinned -->" title="[[topic:pinned]]"></i>
+			<i class="pull-left fa fa-lock <!-- IF !locked -->hidden<!-- ENDIF !locked -->" title="[[topic:locked]]"></i>
+			<i class="pull-left fa fa-arrow-circle-right <!-- IF !oldCid -->hidden<!-- ENDIF !oldCid -->" title="[[topic:moved]]"></i>
+			<!-- BEGIN icons -->@value<!-- END icons -->
 
-			<span class="browsing-users hidden hidden-xs hidden-sm pull-right">
-				<span>[[category:browsing]]</span>
-				<div component="topic/browsing/list" class="thread_active_users active-users inline-block"></div>
-				<small class="hidden">
-					<i class="fa fa-users"></i> <span component="topic/browsing/count" class="user-count"></span>
-				</small>
-			</span>
+			<span class="topic-title" component="topic/title">{title}</span>
 		</h1>
 
-		<div component="topic/deleted/message" class="alert alert-warning<!-- IF !deleted --> hidden<!-- ENDIF !deleted -->">[[topic:deleted_message]]</div>
+		<div component="topic/deleted/message" class="alert alert-warning<!-- IF !deleted --> hidden<!-- ENDIF !deleted --> clearfix">
+			<span class="pull-left">[[topic:deleted_message]]</span>
+			<span class="pull-right">
+				<!-- IF deleter -->
+				<a href="{config.relative_path}/user/{deleter.userslug}">
+					<strong>{deleter.username}</strong>
+				</a>
+				<small class="timeago" title="{deletedTimestampISO}"></small>
+				<!-- ENDIF deleter -->
+			</span>
+		</div>
 
 	<hr class="visible-xs" style="margin-bottom: 0" />
 
@@ -35,6 +42,10 @@
 				</li>
 			<!-- END posts -->
 		</ul>
+
+		<!-- IF config.enableQuickReply -->
+		<!-- IMPORT partials/topic/quickreply.tpl -->
+		<!-- ENDIF config.enableQuickReply -->
 
 		<div class="post-bar">
 			<!-- IMPORT partials/post_bar.tpl -->
@@ -55,7 +66,7 @@
 			</div>
 		</div>
 	</div>
-	<div widget-area="sidebar" class="col-lg-3 col-sm-12"></div>
+	<div widget-area="sidebar" class="col-lg-3 col-sm-12 hidden"></div>
 </div>
 <div widget-area="footer"></div>
 

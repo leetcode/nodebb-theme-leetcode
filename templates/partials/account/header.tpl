@@ -3,15 +3,15 @@
 <div class="cover" component="account/cover" style="background-image: url({cover:url}); background-position: {cover:position};">
 	<div class="avatar-wrapper" data-uid="{uid}">
 		<!-- IF picture -->
-		<img src="{picture}" class="avatar avatar-lg avatar-rounded" />
+		<img src="{picture}" class="avatar avatar-xl avatar-rounded" />
 		<!-- ELSE -->
-		<div class="avatar avatar-lg avatar-rounded" style="background-color: {icon:bgColor};" title="{username}">{icon:text}</div>
+		<div class="avatar avatar-xl avatar-rounded" style="background-color: {icon:bgColor};" title="{username}">{icon:text}</div>
 		<!-- ENDIF picture -->
 		<i component="user/status" class="fa fa-circle status {status}" title="[[global:{status}]]"></i>
-		
+
 		<!-- IF loggedIn -->
 		<!-- IF !isSelf -->
-		<button class="btn-morph fab <!-- IF isFollowing -->heart<!-- ELSE -->plus<!-- ENDIF isFollowing --><!-- IF banned --> hide<!-- ENDIF banned -->">
+		<button class="btn-morph fab <!-- IF isFollowing -->heart<!-- ELSE -->plus<!-- ENDIF isFollowing --><!-- IF banned --> hide<!-- ENDIF banned -->" title="<!-- IF isFollowing -->[[global:unfollow]]<!-- ELSE -->[[global:follow]]<!-- ENDIF isFollowing -->">
 			<span>
 				<span class="s1"></span>
 				<span class="s2"></span>

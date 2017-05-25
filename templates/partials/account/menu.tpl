@@ -1,4 +1,4 @@
-<div class="btn-group account-fab">
+<div class="btn-group account-fab bottom-sheet">
 	<button type="button" class="fab dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<i class="fa fa-ellipsis-v"></i>
 	</button>
@@ -6,8 +6,14 @@
 		<!-- IF !isSelf -->
 		<!-- IF !config.disableChat -->
 		<!-- IF !banned -->
-		<li>
+		<li class="<!-- IF !hasPrivateChat -->hidden<!-- ENDIF !hasPrivateChat -->">
 			<a component="account/chat" href="#">[[user:chat_with, {username}]]</a>
+		</li>
+		<li>
+			<a component="account/new-chat" href="#">[[user:new_chat_with, {username}]]</a>
+		</li>
+		<li>
+			<a component="account/flag" href="#">[[user:flag-profile]]</a>
 		</li>
 		<li class="divider"></li>
 		<!-- ENDIF !banned -->
@@ -50,7 +56,7 @@
 		<li><a href="{config.relative_path}/user/{userslug}/groups">[[global:header.groups]]</a></li>
 
 		<!-- IF showHidden -->
-		<li><a href="{config.relative_path}/user/{userslug}/favourites">[[user:favourites]]</a></li>
+		<li><a href="{config.relative_path}/user/{userslug}/bookmarks">[[user:bookmarks]]</a></li>
 		<li><a href="{config.relative_path}/user/{userslug}/watched">[[user:watched]]</a></li>
 		<!-- IF !reputation:disabled -->
 		<li><a href="{config.relative_path}/user/{userslug}/upvoted">[[global:upvoted]]</a></li>
@@ -61,7 +67,9 @@
 		<!-- ENDIF showHidden -->
 
 		<!-- BEGIN profile_links -->
+		<!-- IF @first -->
 		<li class="divider"></li>
+		<!-- ENDIF @first -->
 		<li id="{profile_links.id}" class="plugin-link <!-- IF profile_links.public -->public<!-- ELSE -->private<!-- ENDIF profile_links.public -->"><a href="{config.relative_path}/user/{userslug}/{profile_links.route}"><i class="fa fa-fw {profile_links.icon}"></i> {profile_links.name}</a></li>
 		<!-- END profile_links -->
 	</ul>

@@ -108,7 +108,15 @@
 				<div class="input-group">
 					<input class="form-control" type="text" component="groups/members/invite" placeholder="[[groups:invited.search]]"/>
 					<span class="input-group-addon search-button"><i class="fa fa-search"></i></span>
-				</div><br />
+				</div>
+
+				<div class="form-group">
+					<textarea class="form-control" component="groups/members/bulk-invite" placeholder="[[groups:bulk-invite-instructions]]"></textarea>
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-default btn-sm pull-right" component="groups/members/bulk-invite-button">[[groups:bulk-invite]]</button>
+				</div>
 
 				<table component="groups/invited" class="table table-striped table-hover">
 					<!-- IF !group.invited.length -->
@@ -128,7 +136,7 @@
 						</td>
 						<td>
 							<div class="btn-group pull-right">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 									[[global:more]] <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu" role="menu">
@@ -154,7 +162,7 @@
 				<form component="groups/settings" role="form">
 					<div class="form-group">
 						<label for="name">[[groups:details.group_name]]</label>
-						<input class="form-control" name="name" id="name" type="text" value="{group.displayName}" />
+						<input <!-- IF group.system -->readonly<!-- ENDIF group.system --> class="form-control" name="name" id="name" type="text" value="{group.displayName}" />
 					</div>
 					<div class="form-group">
 						<label for="name">[[groups:details.description]]</label>

@@ -1,17 +1,17 @@
 <!-- IMPORT partials/breadcrumbs.tpl -->
 <div widget-area="header"></div>
 <div class="row">
-	<div class="category col-lg-9 col-sm-12" no-widget-class="category col-lg-12 col-sm-12" no-widget-target="sidebar">
+	<div class="category col-lg-12 col-sm-12" has-widget-class="category col-lg-9 col-sm-12" has-widget-target="sidebar">
 		<!-- IMPORT partials/category/subcategory.tpl -->
 
 		<!-- IF children.length --><hr class="hidden-xs"/><!-- ENDIF children.length -->
 
 		<div class="clearfix">
 			<!-- IF privileges.topics:create -->
-			<button id="new_topic" class="btn btn-primary">[[category:new_topic_button]]</button>
+			<button component="category/post" id="new_topic" class="btn btn-primary">[[category:new_topic_button]]</button>
 			<!-- ELSE -->
 				<!-- IF !loggedIn -->
-				<a href="{config.relative_path}/login" class="btn btn-primary">[[category:guest-login-post]]</a>
+				<a component="category/post/guest" href="{config.relative_path}/login" class="btn btn-primary">[[category:guest-login-post]]</a>
 				<!-- ENDIF !loggedIn -->
 			<!-- ENDIF privileges.topics:create -->
 
@@ -38,6 +38,7 @@
 			<!-- IMPORT partials/paginator.tpl -->
 		<!-- ENDIF config.usePagination -->
 	</div>
+	<div widget-area="sidebar" class="col-lg-3 col-sm-12 hidden"></div>
 </div>
 <div widget-area="footer"></div>
 
